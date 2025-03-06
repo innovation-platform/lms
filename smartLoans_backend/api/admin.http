@@ -1,0 +1,98 @@
+@apiUrl = http://localhost:2000/api/admins
+
+### Register an Admin
+POST {{apiUrl}}/register
+Content-Type: application/json
+
+{
+    "name": "Harshita",
+    "email": "harshita@example.com",
+    "password": "securpassword"
+}
+
+### Login an Admin
+POST {{apiUrl}}/login
+Content-Type: application/json
+
+{
+    "email": "harshita@example.com",
+    "password": "securpassword"
+}
+
+### Fetch All Admins (Protected)
+GET {{apiUrl}}/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YTQ1NGRjYmM2MTMyZDQxODEwNDdlOCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczOTAwNzMyMSwiZXhwIjoxNzM5MDkzNzIxfQ.MvUMOZkb_fM93tVqhY0IN5Fb5zeLWWhcCCd3wJuYITs
+
+### Creating Customer
+POST {{apiUrl}}/customers
+Content-Type: application/json
+
+{
+  "name": "Madhavan",
+  "accountNumber": "5587658745",
+  "email": "Madhav@example.com",
+  "phone": "9790799719",
+  "password": "Decurepass@2",
+  "aadharnumber": "777654323456",
+  "pannumber": "DLOEF1967Y",
+  "address":"Bren Optimus, Bangalore",
+  "gender": "Male"
+  
+}
+
+### Fetch All Customers
+GET {{apiUrl}}/customers
+
+### Delete Customer
+DELETE {{apiUrl}}/customers/67bc3d9c1676031f4c3b75f2
+
+### Creating Banker
+POST {{apiUrl}}/bankers
+Content-Type: application/json
+
+
+{
+  "name": "Swapmiq ",
+  "username":"qqqq18",
+  "password": "SecurePass@2",
+  "email": "qq19@gmail.com",
+  "role":"Senior Banker",
+  "branch":"Indiranagar",
+  "aadharnumber":"876545643467",
+  "pannumber":"MPOEF1967Y",
+  "gender":"Male",
+  "address":"Bren Optimus",
+  "phone":"9907654543",
+  "accountNumber":"0987876543"
+}
+
+### Fetch All Bankers
+GET {{apiUrl}}/bankers
+
+###update to Banker role
+PATCH {{apiUrl}}/bankers/update-role/67a730310039e0358faf860e
+Content-Type: application/json
+
+{
+    "role": "senior-banker"
+}
+
+###Deleting banker
+DELETE {{apiUrl}}/bankers/67b379c08a7d2eef82ea2799
+
+
+###Fetch all loans
+GET {{apiUrl}}/loans/all
+
+
+###Delete loan
+DELETE {{apiUrl}}/loans/67b428c2f2b4ed03c1aa38ff
+
+###update-role
+POST {{apiUrl}}/addRole
+Content-Type: application/json
+
+{
+    "email":"qq19@gmail.com",
+    "role":"banker"
+}

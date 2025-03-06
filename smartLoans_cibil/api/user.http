@@ -1,0 +1,28 @@
+@api_url = http://localhost:5003/api/cibil/AMCOP9101K
+
+
+### Get All Users
+GET {{api_url}}
+
+### Register User
+POST {{api_url}}
+Content-Type: application/json
+
+{
+    "name": "Jane Doe",
+    "password": "p@ss#1234",
+    "email": "jane.doe@example.com",
+    "roles":["admin"]
+}
+
+### Register User
+GET {{api_url}}
+
+### Login User
+POST {{api_url}}/signin
+Content-Type: application/json
+
+{
+    "email": "jane.doe@example.com",
+    "password": "p@ss#1234"
+}

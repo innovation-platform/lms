@@ -1,0 +1,6 @@
+projectKey=LoanManagement
+serverUrl=http://localhost:1010
+serverVersion=25.2.0.102705
+dashboardUrl=http://localhost:1010/dashboard?id=LoanManagement
+ceTaskId=16c73af8-dc4a-42c5-bbeb-92caf5c9d7b8
+ceTaskUrl=http://localhost:1010/api/ce/task?id=16c73af8-dc4a-42c5-bbeb-92caf5c9d7b8

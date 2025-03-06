@@ -1,0 +1,32 @@
+@baseUrl = https://localhost:4001/api/users
+@token = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJVc2VyQXV0aGVudGljYXRvciIsImlhdCI6MTc0MTEzMjY3MywiZXhwIjoxNzQxMTM2MjczLCJjbGFpbXMiOnsibmFtZSI6IkJoYXZ5YSBLb2NoaGFyIiwiZW1haWwiOiJiaGF2eWFrb2NoaGFyMTRAZ21haWwuY29tIiwicm9sZXMiOlsiYWRtaW4iXSwiYWN0aXZlIjp0cnVlLCJhY2NvdW50TnVtYmVyIjoiNDEzMjYwMzcwNiIsInBob25lIjoiOTkwNzkwODMyMyIsImFkZHJlc3MiOiJOb29rIEFzdGVsbGEsIFMuRyBwYWx5YSBSb2FkLCBCYW5nYWxvcmUsIEluZGlhIn19.tFDpat9exT9PERVtQgCp5_YMRKAUS6kG-1lnVMxVfVQsAZL46G5mnxTJcyC-ao7C9aRO29Xp-5UafHYD4UuW1sx9YRTR5IQl7ylKYczpNyPmABPhTD30a4FrXgvfRsRuQRwqls-RwWRN0cwe2cBTy9sVvz3ngjBELHNeNPldZS5IVtf6FZcVpKOuww7ZG5KfOqghRP88L2D2NBW9ny-na3LrQj_fpgX_Fh2X_f_G22KijCUUN-jIBlXZmM6B2FOhumDOh13bhLevi8Ok-fwlSfSTYNv71He6Iefrv4lvXos3h3iNnxy8_4tkwcvosfm-SvYHxIvwXfMybp4Zm2_1XQ
+
+###admin_login
+POST {{baseUrl}}/signin 
+Content-Type: application/json
+
+{
+    "password": "Password@123",
+    "email": "sudipta14@gmail.com"
+}
+###Create a new Customer
+POST {{baseUrl}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "Ranjana",
+    "email": "ranjana@example.com",
+    "password": "Password@123",
+    "phone": "9876543210",
+    "address": "141/3 Lakshmi Tek",
+    "roles": ["user"]
+}
+
+###Fetch all Users
+GET {{baseUrl}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+
+###Fetch all bankers

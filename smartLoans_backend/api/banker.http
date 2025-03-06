@@ -1,0 +1,7 @@
+GET http://localhost:2000/api/loan?accountNumber=2918513412
+
+###
+GET http://localhost:2000/api/emi/history/LN17401317384152533
+
+###
+GET http://localhost:2000/api/preclosure/LN17401317384152533

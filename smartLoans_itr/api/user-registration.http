@@ -1,0 +1,45 @@
+@api_url = {{$dotenv HOST}}/api/users
+
+### Register User
+POST {{api_url}}
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "password": "p@ss#1234",
+    "email": "john.doe@example.com"    
+}
+
+
+### Register Admin User Should Fail.
+POST {{api_url}}
+Content-Type: application/json
+
+{
+    "name": "Jane Doe",
+    "password": "p@ss#1234",
+    "photo":"jane.jpg",
+    "email": "jane.doe@email.com",
+    "roles":["admin"]
+}
+
+### Register New User
+POST {{api_url}}
+Content-Type: application/json
+
+{
+    "name": "Vivek Dutta Mishra",
+    "password": "p@ss#1234",
+    "photo":"vivek.jpg",
+    "email": "vivek@gmail.com",
+    "roles":["author","editor"]
+}
+
+
+### Activate User jane.doe@example.com
+PATCH {{api_url}}/jane.doe@email.com/activate
+Content-Type: application/json
+
+{
+    "active":true
+}

@@ -1,0 +1,82 @@
+@api_url = https://localhost:5002/api
+
+@expired_token = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJVc2VyQXV0aGVudGljYXRvciIsImlhdCI6MTczODE3MzY3OCwiZXhwIjoxNzM4MTc3Mjc4LCJjbGFpbXMiOnsibmFtZSI6IlZpdmVrIER1dHRhIE1pc2hyYSIsImVtYWlsIjoidml2ZWtAZ21haWwuY29tIiwicGhvdG8iOiJ2aXZlay5qcGciLCJyb2xlcyI6WyJhdXRob3IiLCJlZGl0b3IiXSwiYWN0aXZlIjp0cnVlfX0.usHFYWuebJGS_hMP55AbiexhjGEArKHF5uEmJqGYK3dYTC-ltf34OEi3Tn7YfxBaATra_ilb4FCkk8-MnLCXDLNyf4NQ9vmH4uD0I77PV6CPUd3s1-eLgjl177hQ0ooxrUhJH3zgpxZJQvSBdaVICkTSTaJShh2KXa23dfVwzrKLtKrHPWtG6vh851bRvVFuw5mGegZRXWLodl1xwPI-QpGlCO3bsvP77VKvT_M6rjV5_lVwUoxgOF0YCE_yPTrYBAKs_9joyukLqlHaAWQnszjMukISzGvW_heU7MiScS-9gJjzllsD85e0xb4QtTEGUEzseDORnRZsyP7KerVnqg
+
+# @name loginNonAdmin
+POST {{api_url}}/signin 
+Content-Type: application/json
+
+{
+    "password": "p@ss#1234",
+    "email": "vivek@gmail.com"
+}
+###
+@token = {{loginNonAdmin.response.body.token}}
+
+
+###
+
+# @name loginAdminWithClaims
+POST {{api_url}}/signin
+Content-Type: application/json
+
+{
+    "email": "jane.doe@email.com",
+    "password": "p@ss#1234",
+    "aud":"books.org",
+    "sub":"email",
+    "claims":["name","roles"]
+}
+###
+@admin_token = {{loginAdminWithClaims.response.body.token}}
+
+
+###
+
+# @name getAllUsersWithoutAuthorization
+GET {{api_url}}
+### 
+
+
+### 
+
+# @name getAllUsersWithInvalidToken
+GET {{api_url}}
+Authorization: BREAER invalid_token
+
+###
+
+# @name getAllUsersWithExpired token
+GET {{api_url}}
+Authorization: BEARER {{expired_token}}
+
+###
+
+
+# @name getAllUsersWithNormalAuthorization
+GET {{api_url}}
+Authorization: BEARER {{token}}
+
+###
+
+# @name getAllUsersWithAdminAuthorization
+
+GET {{api_url}}
+Authorization: BEARER {{admin_token}}
+
+###
+
+
+# @name findCurrentUserWithNOrmalToken
+GET {{api_url}}/current
+Authorization: BEARER {{token}}
+
+### 
+
+# @name findCurrentUserAdminClaimsToken
+GET {{api_url}}/current
+Authorization: BEARER {{admin_token}}
+
+###
+GET {{api_url}}/itr/AMCOP9101K
+Content-Type: application/json

@@ -1,0 +1,31 @@
+{
+  "name": "movies-api-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --watch",
+    "dev": "nodemon src/main 4001",
+    "start": "node src/main",
+    "coverage": "nyc --reporter=html --reporter=lcov mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "ca-webutils": "^1.7.1",
+    "chai": "^4.5.0",
+    "chai-as-promised": "^7.1.2",
+    "cors": "^2.8.5",
+    "jsonwebtoken": "^9.0.2",
+    "mocha": "^11.1.0",
+    "mongoose": "^8.9.5",
+    "nodemailer": "^6.10.0",
+    "sinon": "^19.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "nyc": "^17.1.0"
+  }
+}
